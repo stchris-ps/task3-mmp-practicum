@@ -92,11 +92,14 @@ class Response(FlaskForm):
 
 
 def analyz_nan(data):
-    data = data.drop(columns=['index', 'id', 'date'])
+    if 'index' in data.columns and 'id' in data.columns and 'date' in data.columns:
+        data = data.drop(columns=['index', 'id', 'date'])
     MISS = data.isna().sum()[data.isna().sum()!=0].index
     for i in MISS:
         data[i] = data[i].fillna(data[i].mean(skipna=True))
         #print(data[i].mean(skipna=True))
+    cat_data = data.select_dtypes([np.object])
+    data = data.drop(columns=cat_data.columns)
     return data
 
 
