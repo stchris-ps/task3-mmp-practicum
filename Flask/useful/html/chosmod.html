@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 style="margin-left:110px;">Choose your model</h3>
+
+<div class="container">
+      {{ wtf.quick_form(form) }}
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+
+
+<h3 style="margin-left:110px;">available models:</h3>
+{% for message in messages %}
+    <div style="margin-left:110px;">{{ message.header }}&nbsp;&nbsp;&nbsp;<b>{{ message.text }}&nbsp;&nbsp;&nbsp;<b>{{ message.accur }}</b></div>
+{% endfor %}
+
+</body>
+</html>
+{% endblock %}
