@@ -1,13 +1,16 @@
 Instruction for server:
+
 This repository contains docker-file and all enviroment for its building and using.
 This server is wrapper of ensemble models random_forest and gradient_boosting with MSE-loss.
 
 Server give you the following possibilities:
+
     1)Creating and teaching one or more models with interactive hyperparameter setting.
     2)Predicting. Test set must have the same structure with train set.
     3)You can watch information about train loss of every trained model.
 
 The server runs on port 8000. For running clone this repository and type in terminal `docker run --rm -p 8000:8000 -v "PATH_TO_DATA:/root/server/useful/data" -i ensembles_serv`
+
 PATH_TO_DATA - path to directory with train sets and where you want to see files with predictions.
 
 --------------------------------------------------------------------
